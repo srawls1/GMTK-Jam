@@ -36,7 +36,9 @@ sysinfo.txt
 *.unitypackage
 
 # FMOD integration temp files and logs
-Assets/FMODStudioCache.asset
-Assets/StreamingAssets/*.bank
 fmod.log
 fmod_editor.log
+/GMTK Jam/Assets/FMODStudioCache.asset
+/GMTK Jam/Assets/FMODStudioCache.asset.meta
+/GMTK Jam/Assets/StreamingAssets/
+/GMTK Jam/Assets/StreamingAssets.meta
