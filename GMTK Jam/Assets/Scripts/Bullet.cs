@@ -33,4 +33,12 @@ public class Bullet : MonoBehaviour
 		Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = transform.rotation * Vector3.right * speed;
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

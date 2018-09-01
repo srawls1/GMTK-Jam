@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114038077853375056}
   - component: {fileID: 114927625823918644}
   - component: {fileID: 50509705524158896}
+  - component: {fileID: 95130505450824890}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -109,6 +110,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!95 &95130505450824890
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625975890668820}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d95e33afadce534899738313be6c07d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114038077853375056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,8 +178,10 @@ MonoBehaviour:
   timeDilationDecayRate: 0.26
   chargeTooLongDamage: 5
   bulletPosition: {fileID: 4608415505158048}
-  characterBullet: {fileID: 1978000540269138, guid: 56a36ebe4f41dbf44bfaa5b7c78ec148,
-    type: 2}
+  chargedShots:
+  - {fileID: 1502733813396702, guid: 7b951f7b737b73748af462322965109c, type: 2}
+  - {fileID: 1090744732229852, guid: bf277a06bbb66b04e98ade903dfee383, type: 2}
+  - {fileID: 1085260790626054, guid: 742964519c4f1f34291222b38c86c4f0, type: 2}
 --- !u!212 &212869048813260052
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -16,11 +16,13 @@ public class CharacterShooting : MonoBehaviour
     [SerializeField] private float timeDilationDecayRate;
     [SerializeField] private float chargeTooLongDamage;
     [SerializeField] private Transform bulletPosition;
-    [SerializeField] private GameObject characterBullet;
+    [SerializeField] private GameObject[] chargedShots;
 
     private Health health;
+    private Animator animator;
     private int currentAmmo;
     private float destinationTimeScale;
+    private bool interrupted;
 
     public event Action<int, int> OnAmmoChanged;
 
@@ -28,12 +30,13 @@ public class CharacterShooting : MonoBehaviour
     {
         OnAmmoChanged += PrintAmmo;
         health = GetComponent<Health>();
+        animator = GetComponent<Animator>();
         destinationTimeScale = 1f;
     }
 
     void PrintAmmo(int current, int max)
     {
-        Debug.Log(string.Format("Ammo: {0}/{1}", current, max));
+        //Debug.Log(string.Format("Ammo: {0}/{1}", current, max));
     }
 
 	void Update()
@@ -62,6 +65,7 @@ public class CharacterShooting : MonoBehaviour
                         damage *= b.damage;
                     }
                     health.TakeDamage(damage);
+                    Interrupt();
                     currentAmmo = maxAmmo;
                 }
                 OnAmmoChanged(currentAmmo, maxAmmo);
@@ -69,23 +73,32 @@ public class CharacterShooting : MonoBehaviour
             else
             {
                 health.TakeDamage(b.damage);
+                Interrupt();
             }
             Destroy(collision.gameObject);
         }
     }
 
+    public void Interrupt()
+    {
+        interrupted = true;
+        animator.SetFloat("ChargeLevel", 0f);
+    }
+
     IEnumerator ChargeShot()
     {
+        interrupted = false;
         destinationTimeScale = minTimeScale;
         float timePassed = 0f;
-        float ammoConsumed = 0f;
+        float ammoConsumed = 1f;
 
-        while (Input.GetButton("Shoot"))
+        while (Input.GetButton("Shoot") && !interrupted)
         {
             ammoConsumed += ammoConsumptionRate * Time.deltaTime;
             destinationTimeScale += timeDilationDecayRate * Time.deltaTime;
             destinationTimeScale = Mathf.Min(destinationTimeScale, 1f);
-            timePassed += Time.deltaTime;
+
+            animator.SetFloat("ChargeLevel", ammoConsumed);
 
             yield return null;
 
@@ -94,21 +107,22 @@ public class CharacterShooting : MonoBehaviour
                 health.TakeDamage(chargeTooLongDamage * Time.deltaTime);
             }
 
-            if (ammoConsumed >= currentAmmo)
+            if (ammoConsumed >= chargedShots.Length)
             {
-                break;
+                ammoConsumed = chargedShots.Length;
             }
         }
 
         int wholeAmmoConsumed = Mathf.RoundToInt(ammoConsumed);
         currentAmmo -= wholeAmmoConsumed;
 
+        animator.SetFloat("ChargeLevel", 0f);
+
         OnAmmoChanged(currentAmmo, maxAmmo);
 
-        if (wholeAmmoConsumed > 0)
+        if (wholeAmmoConsumed > 0 && !interrupted)
         {
-            GameObject bullet = Instantiate(characterBullet, bulletPosition.position, bulletPosition.rotation);
-            // TODO Set the bullet damage based on ammoConsumed
+            GameObject bullet = Instantiate(chargedShots[wholeAmmoConsumed - 1], bulletPosition.position, bulletPosition.rotation);
         }
 
         destinationTimeScale = 1f;

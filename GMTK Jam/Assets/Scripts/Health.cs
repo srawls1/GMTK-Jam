@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
 
     void PrintHealth(float current, int max)
     {
-        Debug.Log(string.Format("HP: {0}/{1}", current, max));
+        //Debug.Log(string.Format("HP: {0}/{1}", current, max));
     }
 
 	public void TakeDamage(float damage)
