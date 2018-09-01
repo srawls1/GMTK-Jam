@@ -8,17 +8,22 @@ public class CharacterShooting : MonoBehaviour
     [SerializeField] private int maxAmmo;
     [SerializeField] private float ammoConsumptionRate;
     [SerializeField] private float chargeTimeDamageThreshold;
+    [SerializeField] private float tooMuchAmmoDamage;
+    [SerializeField] private bool multiplyTooMuchAmmoDamageByBulletDamage;
     [SerializeField, Range(0f, 1f)] private float minTimeScale;
     [SerializeField, Range(0f, 1f)] private float timeDilationSmoothing;
     [SerializeField] private float timeDilationDecayRate;
+    [SerializeField] private float chargeTooLongDamage;
     [SerializeField] private Transform bulletPosition;
     [SerializeField] private GameObject characterBullet;
 
+    private Health health;
     private int currentAmmo;
     private float destinationTimeScale;
 
     void Awake()
     {
+        health = GetComponent<Health>();
         destinationTimeScale = 1f;
     }
 
@@ -42,15 +47,18 @@ public class CharacterShooting : MonoBehaviour
                 ++currentAmmo;
                 if (currentAmmo > maxAmmo)
                 {
-                    // TODO damage
-                    Debug.Log("Taking damage from too much ammo");
+                    float damage = tooMuchAmmoDamage;
+                    if (multiplyTooMuchAmmoDamageByBulletDamage)
+                    {
+                        damage *= b.damage;
+                    }
+                    health.TakeDamage(damage);
                     currentAmmo = maxAmmo;
                 }
             }
             else
             {
-                // TODO damage
-                Debug.Log("Taking damage from bullet");
+                health.TakeDamage(b.damage);
             }
             Destroy(collision.gameObject);
         }
@@ -73,8 +81,7 @@ public class CharacterShooting : MonoBehaviour
 
             if (timePassed >= chargeTimeDamageThreshold)
             {
-                // TODO damage
-                Debug.Log("Taking damage from charging too long");
+                health.TakeDamage(chargeTooLongDamage * Time.deltaTime);
             }
 
             if (ammoConsumed >= currentAmmo)
