@@ -15,6 +15,7 @@ public class CharacterShooting : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float timeDilationSmoothing;
     [SerializeField] private float timeDilationDecayRate;
     [SerializeField] private float chargeTooLongDamage;
+    [SerializeField] private Transform bulletPivot;
     [SerializeField] private Transform bulletPosition;
     [SerializeField] private GameObject[] chargedShots;
 
@@ -23,6 +24,7 @@ public class CharacterShooting : MonoBehaviour
     private int currentAmmo;
     private float destinationTimeScale;
     private bool interrupted;
+    private bool usingJoystick;
 
     public event Action<int, int> OnAmmoChanged;
 
@@ -85,6 +87,38 @@ public class CharacterShooting : MonoBehaviour
         animator.SetFloat("ChargeLevel", 0f);
     }
 
+    public Quaternion GetLaserRotation()
+    {
+        bool currentInput = false;
+        Vector2 mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        if (!Mathf.Approximately(mouseMovement.magnitude, 0))
+        {
+            usingJoystick = false;
+        }
+        Vector2 aimInput = new Vector2(Input.GetAxis("AimX"), Input.GetAxis("AimY"));
+        if (Mathf.Abs(aimInput.magnitude) >= 0.2f)
+        {
+            usingJoystick = true;
+            currentInput = true;
+        }
+
+        if (!usingJoystick)
+        {
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            aimInput = new Vector2(worldMousePosition.x - transform.position.x,
+                                    worldMousePosition.y - transform.position.y)
+                                    .normalized;
+        }
+        if (usingJoystick && !currentInput)
+        {
+            Debug.Log("No current input");
+            return bulletPivot.rotation;
+        }
+
+        float aimRotation = Mathf.Atan2(aimInput.y, aimInput.x) * Mathf.Rad2Deg;
+        return Quaternion.Euler(0, 0, aimRotation);
+    }
+
     IEnumerator ChargeShot()
     {
         interrupted = false;
@@ -102,9 +136,19 @@ public class CharacterShooting : MonoBehaviour
 
             yield return null;
 
+            Quaternion aimRotation = GetLaserRotation();
+            bulletPivot.rotation = aimRotation;
+            animator.SetFloat("Rotation", aimRotation.eulerAngles.z);
+            timePassed += Time.deltaTime;
+
             if (timePassed >= chargeTimeDamageThreshold)
             {
                 health.TakeDamage(chargeTooLongDamage * Time.deltaTime);
+            }
+
+            if (ammoConsumed >= currentAmmo)
+            {
+                break;
             }
 
             if (ammoConsumed >= chargedShots.Length)
@@ -122,7 +166,7 @@ public class CharacterShooting : MonoBehaviour
 
         if (wholeAmmoConsumed > 0 && !interrupted)
         {
-            GameObject bullet = Instantiate(chargedShots[wholeAmmoConsumed - 1], bulletPosition.position, bulletPosition.rotation);
+            Instantiate(chargedShots[wholeAmmoConsumed - 1], bulletPosition.position, bulletPosition.rotation);
         }
 
         destinationTimeScale = 1f;

@@ -13,14 +13,14 @@ Prefab:
   m_IsPrefabAsset: 1
 --- !u!1 &1579541116361348
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4608415505158048}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LaserStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,19 +48,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1716877633518486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4566949766680436}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4566949766680436
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716877633518486}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4608415505158048}
+  m_Father: {fileID: 4899589643355722}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4608415505158048
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1579541116361348}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.158, z: 0}
-  m_LocalScale: {x: 0.110792324, y: 0.110792324, z: 0.11079227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.158, y: 0, z: 0}
+  m_LocalScale: {x: 0.110792376, y: 0.110792376, z: 0.110792264}
   m_Children: []
-  m_Father: {fileID: 4899589643355722}
+  m_Father: {fileID: 4566949766680436}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4899589643355722
 Transform:
   m_ObjectHideFlags: 1
@@ -71,7 +100,7 @@ Transform:
   m_LocalPosition: {x: -0.02, y: -2.53, z: 0}
   m_LocalScale: {x: 9.0259, y: 9.0259, z: 9.0259}
   m_Children:
-  - {fileID: 4608415505158048}
+  - {fileID: 4566949766680436}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -169,14 +198,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 5
-  ammoConsumptionRate: 1
+  ammoConsumptionRate: 2
   chargeTimeDamageThreshold: 3
   tooMuchAmmoDamage: 1
   multiplyTooMuchAmmoDamageByBulletDamage: 1
   minTimeScale: 0.254
   timeDilationSmoothing: 0.26
   timeDilationDecayRate: 0.26
-  chargeTooLongDamage: 5
+  chargeTooLongDamage: 3
+  bulletPivot: {fileID: 4566949766680436}
   bulletPosition: {fileID: 4608415505158048}
   chargedShots:
   - {fileID: 1502733813396702, guid: 7b951f7b737b73748af462322965109c, type: 2}

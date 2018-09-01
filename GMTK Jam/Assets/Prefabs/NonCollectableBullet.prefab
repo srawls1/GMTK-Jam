@@ -102,6 +102,10 @@ MonoBehaviour:
   speed: 7.95
   m_collectable: 0
   m_damage: 8.01
+  m_charge: 0
+  safeColor: {r: 0.09019608, g: 0.34901962, b: 0.91372555, a: 1}
+  dangerousColor: {r: 0.91372555, g: 0.64705884, b: 0.09019608, a: 1}
+  colorSmoothing: 4.82
 --- !u!212 &212985856389215144
 SpriteRenderer:
   m_ObjectHideFlags: 1

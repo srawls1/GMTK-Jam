@@ -9,15 +9,22 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool m_collectable;
     [SerializeField] private float m_damage;
-    // TODO We'll see about color shifting
+    [SerializeField] private int m_charge;
+    [SerializeField] private Color safeColor;
+    [SerializeField] private Color dangerousColor;
+    [SerializeField] private float colorSmoothing;
+
+    private bool currentlyDangerous;
+    private SpriteRenderer renderer;
+
+    private static CharacterShooting character;
 
     public bool collectable
     {
         get
         {
-            return m_collectable;
+            return m_collectable && !currentlyDangerous;
         }
-        // TODO We'll see about setting this later
     }
 
     public float damage
@@ -28,11 +35,35 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public int charge
+    {
+        get
+        {
+            return m_charge;
+        }
+    }
+
 	void Awake()
     {
 		Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
         rigidbody.velocity = transform.rotation * Vector3.right * speed;
+        currentlyDangerous = !collectable;
 	}
+
+    void Start()
+    {
+        if (character == null)
+        {
+            character = FindObjectOfType<CharacterShooting>();
+        }
+    }
+
+    void Update()
+    {
+        Color goalColor = collectable ? safeColor : dangerousColor;
+        renderer.color = Color.Lerp(renderer.color, goalColor, colorSmoothing * Time.deltaTime);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
