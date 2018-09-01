@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private bool m_collectable;
-    // TODO - We'll see about color shifting
+    [SerializeField] private float m_damage;
+    // TODO We'll see about color shifting
 
     public bool collectable
     {
@@ -16,7 +17,15 @@ public class Bullet : MonoBehaviour
         {
             return m_collectable;
         }
-        // TODO - We'll see about changing this later
+        // TODO We'll see about setting this later
+    }
+
+    public float damage
+    {
+        get
+        {
+            return m_damage;
+        }
     }
 
 	void Awake()
