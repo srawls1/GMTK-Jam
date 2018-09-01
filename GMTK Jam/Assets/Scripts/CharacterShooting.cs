@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,10 +22,18 @@ public class CharacterShooting : MonoBehaviour
     private int currentAmmo;
     private float destinationTimeScale;
 
+    public event Action<int, int> OnAmmoChanged;
+
     void Awake()
     {
+        OnAmmoChanged += PrintAmmo;
         health = GetComponent<Health>();
         destinationTimeScale = 1f;
+    }
+
+    void PrintAmmo(int current, int max)
+    {
+        Debug.Log(string.Format("Ammo: {0}/{1}", current, max));
     }
 
 	void Update()
@@ -55,6 +64,7 @@ public class CharacterShooting : MonoBehaviour
                     health.TakeDamage(damage);
                     currentAmmo = maxAmmo;
                 }
+                OnAmmoChanged(currentAmmo, maxAmmo);
             }
             else
             {
@@ -92,6 +102,8 @@ public class CharacterShooting : MonoBehaviour
 
         int wholeAmmoConsumed = Mathf.RoundToInt(ammoConsumed);
         currentAmmo -= wholeAmmoConsumed;
+
+        OnAmmoChanged(currentAmmo, maxAmmo);
 
         if (wholeAmmoConsumed > 0)
         {

@@ -86,8 +86,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -132,8 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a36de3a8d4e7a9489ee1db9c50f471f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalSpeed: 30
-  VerticalSpeed: 30
+  HorizontalSpeed: 7
+  VerticalSpeed: 7
+  HorizontalAcceleration: 35
+  VerticalAcceleration: 35
+  HorizontalDeceleration: 45
+  VerticalDeceleration: 45
 --- !u!114 &114968891456103960
 MonoBehaviour:
   m_ObjectHideFlags: 1
