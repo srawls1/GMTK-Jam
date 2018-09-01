@@ -90,9 +90,14 @@ public class CharacterShooting : MonoBehaviour
             }
         }
 
-        currentAmmo -= Mathf.RoundToInt(ammoConsumed);
-        GameObject bullet = Instantiate(characterBullet, bulletPosition.position, bulletPosition.rotation);
-        // TODO Set the bullet damage based on ammoConsumed
+        int wholeAmmoConsumed = Mathf.RoundToInt(ammoConsumed);
+        currentAmmo -= wholeAmmoConsumed;
+
+        if (wholeAmmoConsumed > 0)
+        {
+            GameObject bullet = Instantiate(characterBullet, bulletPosition.position, bulletPosition.rotation);
+            // TODO Set the bullet damage based on ammoConsumed
+        }
 
         destinationTimeScale = 1f;
     }
