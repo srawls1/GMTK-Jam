@@ -28,6 +28,11 @@ public class CharacterShooting : MonoBehaviour
 
     public event Action<int, int> OnAmmoChanged;
 
+    public bool charging
+    {
+        get; private set;
+    }
+
     void Awake()
     {
         OnAmmoChanged += PrintAmmo;
@@ -111,7 +116,6 @@ public class CharacterShooting : MonoBehaviour
         }
         if (usingJoystick && !currentInput)
         {
-            Debug.Log("No current input");
             return bulletPivot.rotation;
         }
 
@@ -125,6 +129,8 @@ public class CharacterShooting : MonoBehaviour
         destinationTimeScale = minTimeScale;
         float timePassed = 0f;
         float ammoConsumed = 1f;
+
+        charging = true;
 
         while (Input.GetButton("Shoot") && !interrupted)
         {
@@ -159,6 +165,7 @@ public class CharacterShooting : MonoBehaviour
 
         int wholeAmmoConsumed = Mathf.RoundToInt(ammoConsumed);
         currentAmmo -= wholeAmmoConsumed;
+        charging = false;
 
         animator.SetFloat("ChargeLevel", 0f);
 

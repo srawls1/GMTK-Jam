@@ -61,6 +61,17 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        if (character != null)
+        {
+            if (character.charging)
+            {
+                currentlyDangerous = true;
+            }
+            else if (m_collectable)
+            {
+                currentlyDangerous = false;
+            }
+        }
         Color goalColor = collectable ? safeColor : dangerousColor;
         renderer.color = Color.Lerp(renderer.color, goalColor, colorSmoothing * Time.deltaTime);
     }

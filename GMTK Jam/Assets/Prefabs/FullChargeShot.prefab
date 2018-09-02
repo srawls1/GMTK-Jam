@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114935298746472966}
   - component: {fileID: 61736284423887678}
   - component: {fileID: 50071380753243770}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FullChargeShot
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -102,6 +102,10 @@ MonoBehaviour:
   speed: 7.95
   m_collectable: 0
   m_damage: 15
+  m_charge: 0
+  safeColor: {r: 0, g: 0, b: 0, a: 0}
+  dangerousColor: {r: 0, g: 0, b: 0, a: 0}
+  colorSmoothing: 0
 --- !u!212 &212922129433953730
 SpriteRenderer:
   m_ObjectHideFlags: 1

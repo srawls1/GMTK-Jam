@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114690433240292026}
   - component: {fileID: 61980575215651954}
   - component: {fileID: 50859068858985848}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LowChargeShot
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -102,6 +102,10 @@ MonoBehaviour:
   speed: 7.95
   m_collectable: 0
   m_damage: 2
+  m_charge: 0
+  safeColor: {r: 0, g: 0, b: 0, a: 0}
+  dangerousColor: {r: 0, g: 0, b: 0, a: 0}
+  colorSmoothing: 0
 --- !u!212 &212848821850553502
 SpriteRenderer:
   m_ObjectHideFlags: 1

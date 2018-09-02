@@ -17,10 +17,10 @@ TagManager:
   - 
   - InvisibleWall
   - Player
-  - 
-  - 
-  - 
-  - 
+  - Enemies
+  - Enemy Projectiles
+  - Player
+  - Player Projectiles
   - 
   - 
   - 
