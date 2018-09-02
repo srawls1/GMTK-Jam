@@ -1203,6 +1203,7 @@ MonoBehaviour:
     enemy: {fileID: 1339576997}
   - activateAfterTime: 8
     enemy: {fileID: 1665347998}
+  numRequiredToKill: 4
 --- !u!4 &1875805724
 Transform:
   m_ObjectHideFlags: 0

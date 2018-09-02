@@ -12,6 +12,9 @@ class EnemyActivation
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private List<EnemyActivation> activations;
+    [SerializeField] private int numRequiredToKill;
+
+    int numKilled = 0;
 
 	IEnumerator Start()
     {
@@ -39,7 +42,20 @@ public class EnemyManager : MonoBehaviour
             }
 
             activation.enemy.SetActive(true);
+            activation.enemy.GetComponent<Health>().OnDeath += () =>
+            {
+                RecordEnemyDead();
+            };
             time = activation.activateAfterTime;
         }
 	}
+
+    void RecordEnemyDead()
+    {
+        ++numKilled;
+        if (numKilled >= numRequiredToKill)
+        {
+            Debug.Log("WINNER!!!!!!!!!!!!");
+        }
+    }
 }

@@ -67,6 +67,10 @@ public class Bullet : MonoBehaviour
             {
                 currentlyDangerous = true;
             }
+            else if (character.atMaxAmmo)
+            {
+                currentlyDangerous = true;
+            }
             else if (m_collectable)
             {
                 currentlyDangerous = false;

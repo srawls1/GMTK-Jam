@@ -23,7 +23,6 @@ public class CharacterShooting : MonoBehaviour
 
     private Health health;
     private Animator animator;
-    private int currentAmmo;
     private float destinationTimeScale;
     private bool interrupted;
     private bool usingJoystick;
@@ -34,6 +33,19 @@ public class CharacterShooting : MonoBehaviour
     public bool charging
     {
         get; private set;
+    }
+
+    public int currentAmmo
+    {
+        get; private set;
+    }
+
+    public bool atMaxAmmo
+    {
+        get
+        {
+            return currentAmmo == maxAmmo;
+        }
     }
 
     void Awake()
