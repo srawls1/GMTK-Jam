@@ -27,7 +27,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &1101483450400881466
+--- !u!1101 &1101139371551201304
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,7 +38,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Death
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102316269910133770}
+  m_DstState: {fileID: 1102686555642137180}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -61,7 +61,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101483450400881466}
+  - {fileID: 1101139371551201304}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -77,13 +77,13 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102316269910133770
+--- !u!1102 &1102686555642137180
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Death
+  m_Name: BaddieRedDeath
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -96,7 +96,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 616a9099ac7e6a84fbf60bbd2502d551, type: 2}
+  m_Motion: {fileID: 7400000, guid: 07395c7281defd346a7eb6ae06e5c379, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -114,8 +114,8 @@ AnimatorStateMachine:
     m_State: {fileID: 1102101961030389390}
     m_Position: {x: 204, y: 216, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102316269910133770}
-    m_Position: {x: 453.8706, y: 321.89722, z: 0}
+    m_State: {fileID: 1102686555642137180}
+    m_Position: {x: 240, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

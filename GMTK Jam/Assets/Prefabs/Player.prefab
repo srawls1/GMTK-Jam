@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnHealth: 50
-  respawnDelay: 0.7
+  respawnDelay: 1.5
   numLives: 3
 --- !u!114 &114846355112082280
 MonoBehaviour:
