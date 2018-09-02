@@ -33,6 +33,10 @@ public class EnemyHitbox : MonoBehaviour
 
     void HandleEnemyDeath()
     {
+    }
+
+    public void DestroySelf()
+    {
         Destroy(gameObject);
     }
 }

@@ -137,9 +137,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16948877, y: -0.17548132}
+  m_Offset: {x: 0.31835324, y: -0.17548132}
   serializedVersion: 2
-  m_Radius: 0.15303922
+  m_Radius: 0.19020802
 --- !u!95 &95130505450824890
 Animator:
   serializedVersion: 3
@@ -218,6 +218,8 @@ MonoBehaviour:
   timeDilationSmoothing: 0.26
   timeDilationDecayRate: 0.26
   chargeTooLongDamage: 3
+  invulnerabilityTime: 0.6
+  framesPerBlink: 2
   bulletPivot: {fileID: 4566949766680436}
   bulletPosition: {fileID: 4608415505158048}
   chargedShots:

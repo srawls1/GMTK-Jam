@@ -15,6 +15,8 @@ public class CharacterShooting : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float timeDilationSmoothing;
     [SerializeField] private float timeDilationDecayRate;
     [SerializeField] private float chargeTooLongDamage;
+    [SerializeField] private float invulnerabilityTime;
+    [SerializeField] private int framesPerBlink;
     [SerializeField] private Transform bulletPivot;
     [SerializeField] private Transform bulletPosition;
     [SerializeField] private GameObject[] chargedShots;
@@ -25,6 +27,7 @@ public class CharacterShooting : MonoBehaviour
     private float destinationTimeScale;
     private bool interrupted;
     private bool usingJoystick;
+    private bool invulnerable = false;
 
     public event Action<int, int> OnAmmoChanged;
 
@@ -67,7 +70,7 @@ public class CharacterShooting : MonoBehaviour
             if (b.collectable)
             {
                 ++currentAmmo;
-                if (currentAmmo > maxAmmo)
+                if (currentAmmo > maxAmmo && !invulnerable)
                 {
                     float damage = tooMuchAmmoDamage;
                     if (multiplyTooMuchAmmoDamageByBulletDamage)
@@ -75,18 +78,44 @@ public class CharacterShooting : MonoBehaviour
                         damage *= b.damage;
                     }
                     health.TakeDamage(damage);
+                    StartCoroutine(ShowDamageRoutine());
                     Interrupt();
                     currentAmmo = maxAmmo;
                 }
                 OnAmmoChanged(currentAmmo, maxAmmo);
             }
-            else
+            else if (!invulnerable)
             {
                 health.TakeDamage(b.damage);
                 Interrupt();
+                StartCoroutine(ShowDamageRoutine());
             }
             Destroy(collision.gameObject);
         }
+    }
+
+    IEnumerator ShowDamageRoutine()
+    {
+        invulnerable = true;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        Color originalColor = renderer.color;
+
+        float startTime = Time.time;
+        while (Time.time - startTime < invulnerabilityTime)
+        {
+            renderer.color = Color.clear;
+            for (int i = 0; i < framesPerBlink; ++i)
+            {
+                yield return null;
+            }
+            renderer.color = originalColor;
+            for (int i = 0; i < framesPerBlink; ++i)
+            {
+                yield return null;
+            }
+        }
+
+        invulnerable = false;
     }
 
     public void Interrupt()
