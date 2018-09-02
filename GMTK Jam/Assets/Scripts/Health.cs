@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
             return;
         }
 
-        FMODUnity.RuntimeManager.CreateInstance(DamageSoundString);
+        FMODUnity.RuntimeManager.CreateInstance(DamageSoundString).start();
         currentHealth -= damage;
 
         if (currentHealth <= 0)
