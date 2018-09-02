@@ -87,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
         while (numberOfCircles != 0)
         {
             float timePassed = 0f;
-            while (timePassed < 1f)
+            while (timePassed < 2 * Mathf.PI)
             {
                 timePassed += Time.deltaTime * frequency * 2 * Mathf.PI;
                 transform.position = center + new Vector3(Mathf.Cos(timePassed),
