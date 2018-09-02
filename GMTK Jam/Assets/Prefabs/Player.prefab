@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageSoundString: event:/SFX/Player/Health_damaged
   maxHealth: 50
+  currentHealth: 0
   isPlayer: 0
 --- !u!114 &114658455556945988
 MonoBehaviour:

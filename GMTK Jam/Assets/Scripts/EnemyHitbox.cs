@@ -28,6 +28,10 @@ public class EnemyHitbox : MonoBehaviour
     void SetDamageAnimation(float currentHealth, int maxHealth)
     {
         animator.SetFloat("Health", currentHealth / maxHealth);
+        if (currentHealth <= 0)
+        {
+            animator.SetFloat("Health", -1);
+        }
     }
 
     public void DestroySelf()

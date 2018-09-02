@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] bool isPlayer;
 
-    private float currentHealth;
+    public float currentHealth;
 
     public event Action<float, int> OnHealthChanged;
     public event Action OnDeath;
