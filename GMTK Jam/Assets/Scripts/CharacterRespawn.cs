@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterRespawn : MonoBehaviour
 {
     [SerializeField] private float respawnHealth;
     [SerializeField] private float respawnDelay;
     [SerializeField] private int numLives;
+    [SerializeField] string GameOverScreen;
 
     private Health health;
     private Rigidbody2D rigidBody;
@@ -25,6 +27,7 @@ public class CharacterRespawn : MonoBehaviour
         if (numLives == 0)
         {
             Debug.Log("LOSER!!!!!!!!!");
+            SceneManager.LoadScene(GameOverScreen);
         }
         else
         {

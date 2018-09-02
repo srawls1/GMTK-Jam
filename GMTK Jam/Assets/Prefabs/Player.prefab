@@ -217,6 +217,7 @@ MonoBehaviour:
   respawnHealth: 50
   respawnDelay: 1.5
   numLives: 3
+  GameOverScreen: GameOverScreen
 --- !u!114 &114846355112082280
 MonoBehaviour:
   m_ObjectHideFlags: 1
