@@ -13,7 +13,6 @@ public class EnemyHitbox : MonoBehaviour
         health = GetComponent<Health>();
         animator.SetFloat("Health", 1f);
         health.OnHealthChanged += SetDamageAnimation;
-        health.OnDeath += () => HandleEnemyDeath();
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,7 +30,7 @@ public class EnemyHitbox : MonoBehaviour
         animator.SetFloat("Health", currentHealth / maxHealth);
     }
 
-    void HandleEnemyDeath()
+    public void DestroySelf()
     {
         Destroy(gameObject);
     }

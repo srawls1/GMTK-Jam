@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 224031687885569588}
   - component: {fileID: 114389449591260394}
   - component: {fileID: 114429740527473412}
+  - component: {fileID: 114462928462365568}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -104,6 +105,7 @@ GameObject:
   - component: {fileID: 224026749731240416}
   - component: {fileID: 114505335238984322}
   - component: {fileID: 114661008785092090}
+  - component: {fileID: 114903187290777938}
   m_Layer: 5
   m_Name: AmmoBar
   m_TagString: Untagged
@@ -458,6 +460,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114462928462365568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268028478441214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ba509c162b4e94ba1180afc764b5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFramesToFlash: 3
 --- !u!114 &114478885529956514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -734,6 +748,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114903187290777938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352963681454846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ba509c162b4e94ba1180afc764b5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFramesToFlash: 0
 --- !u!222 &222001324915384756
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -970,10 +996,10 @@ RectTransform:
   m_Father: {fileID: 224371093494271696}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -477.95, y: -76.2}
-  m_SizeDelta: {x: 100, y: 369.1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 84.04999, y: -76.2}
+  m_SizeDelta: {x: 100, y: -262.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224371093494271696
 RectTransform:

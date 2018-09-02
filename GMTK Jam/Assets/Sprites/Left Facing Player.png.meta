@@ -124,10 +124,10 @@ TextureImporter:
       name: Left Facing Player_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 133
-        height: 100
+        x: 15
+        y: 12
+        width: 85
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,7 +135,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f49cad0a847993b44a192f882c44da6e
+      spriteID: 8e75516e522f5614a9a0716a34cecc68
       vertices: []
       indices: 
       edges: []
@@ -144,10 +144,10 @@ TextureImporter:
       name: Left Facing Player_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 0
-        width: 133
-        height: 100
+        x: 172
+        y: 13
+        width: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,7 +155,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5906ccd508166684d847d570a7aba806
+      spriteID: 3b7bd53a20949b34bbaa51c82f2c3717
       vertices: []
       indices: 
       edges: []
@@ -164,10 +164,10 @@ TextureImporter:
       name: Left Facing Player_2
       rect:
         serializedVersion: 2
-        x: 266
-        y: 0
-        width: 133
-        height: 100
+        x: 289
+        y: 12
+        width: 78
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,7 +175,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50a4ca2642292d43910ccbdf94bc96f
+      spriteID: c934210aa0793ca41a575c8e8dd94f30
       vertices: []
       indices: 
       edges: []
@@ -184,10 +184,10 @@ TextureImporter:
       name: Left Facing Player_3
       rect:
         serializedVersion: 2
-        x: 399
-        y: 0
-        width: 133
-        height: 100
+        x: 403
+        y: 13
+        width: 108
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,7 +195,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 451f5ccaa3226b94d8d2e8901f61ad2d
+      spriteID: 1fb239abf6a165147bfd877f010ab646
       vertices: []
       indices: 
       edges: []

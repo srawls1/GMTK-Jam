@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114927625823918644}
   - component: {fileID: 50509705524158896}
   - component: {fileID: 95130505450824890}
+  - component: {fileID: 114658455556945988}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -137,9 +138,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16948877, y: -0.17548132}
+  m_Offset: {x: -0.10257091, y: -0.17548132}
   serializedVersion: 2
-  m_Radius: 0.15303922
+  m_Radius: 0.18054737
 --- !u!95 &95130505450824890
 Animator:
   serializedVersion: 3
@@ -170,6 +171,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+--- !u!114 &114658455556945988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625975890668820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704c611f39e5f0e4792b45abdf81cee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnHealth: 50
+  numLives: 3
 --- !u!114 &114846355112082280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +232,8 @@ MonoBehaviour:
   timeDilationSmoothing: 0.26
   timeDilationDecayRate: 0.26
   chargeTooLongDamage: 3
+  invulnerabilityTime: 0.6
+  framesPerBlink: 2
   bulletPivot: {fileID: 4566949766680436}
   bulletPosition: {fileID: 4608415505158048}
   chargedShots:
