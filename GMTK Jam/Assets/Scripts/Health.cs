@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     private float currentHealth;
 
     public event Action<float, int> OnHealthChanged;
+    public event Action OnDeath;
 
     void Start()
     {
@@ -48,6 +49,9 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Dead");
+        if (OnDeath != null)
+        {
+            OnDeath();
+        }
     }
 }
