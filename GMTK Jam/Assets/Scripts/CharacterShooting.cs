@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterShooting : MonoBehaviour
 {
+    [FMODUnity.EventRef] public string BackgroundMusic;
 
     [SerializeField] private int maxAmmo;
     [SerializeField] private float ammoConsumptionRate;
