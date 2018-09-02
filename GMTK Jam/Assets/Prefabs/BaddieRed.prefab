@@ -161,6 +161,7 @@ MonoBehaviour:
   DamageSoundString: event:/SFX/Enemy/Enemy_small_damaged
   maxHealth: 20
   isPlayer: 0
+  currentHealth: 0
 --- !u!114 &114860699677682876
 MonoBehaviour:
   m_ObjectHideFlags: 1
