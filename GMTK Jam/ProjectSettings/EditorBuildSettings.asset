@@ -12,9 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/srawlsTest.unity
     guid: a9206cb8b97da3d41a3b50e762124565
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Levels/Level1.unity
     guid: 6de4be5b8248f104292aa738e355ee44
   - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: d2914bcb718cf364199c3a38de4f8b71
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: 5e096f8c9e8f97f4b9b53aef89f4b6de
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: ca172540fe0da3741947b6cde876e50c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 5e26794e4df0b7d438ca4175286c3485
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: 07b352f3163e51048812e5c635b7c6e3
   m_configObjects: {}
