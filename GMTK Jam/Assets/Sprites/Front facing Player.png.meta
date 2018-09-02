@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: f429077b55e2ce84ab56bfdeed7fa860
+guid: 00eba228a71563b41bf1af9909d1fec6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: lettering ammo health_0
-    21300002: lettering ammo health_1
+    21300000: Front facing Player_0
+    21300002: Front facing Player_1
+    21300004: Front facing Player_2
+    21300006: Front facing Player_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -119,41 +121,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lettering ammo health_0
+      name: Front facing Player_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 15
-        width: 31
-        height: 13
-      alignment: 9
-      pivot: {x: 0.5, y: 0.29937553}
-      border: {x: 3, y: 0, z: 3, w: 5}
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d011e437150ed04fad20e40b0c23bdc
+      spriteID: 2afcc51eeb2092548ab29bd6093635ab
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lettering ammo health_1
+      name: Front facing Player_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 100
         y: 0
-        width: 31
-        height: 14
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5576624}
-      border: {x: 0, y: 4, z: 0, w: 2}
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b8fa04d2202c484f8a481ea733692f2
+      spriteID: 993b068d0398d70408a9c6d3352d27aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Front facing Player_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd43b2afb3ea4f4a947001a90d44be2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Front facing Player_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83ccc95adccee045aca99a305a21976
       vertices: []
       indices: 
       edges: []
@@ -161,7 +203,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e459f8ed757f38f4da943bd5bc4cab47
+    spriteID: 9f4a53f8515856d48b0699d02ce030e2
     vertices: []
     indices: 
     edges: []

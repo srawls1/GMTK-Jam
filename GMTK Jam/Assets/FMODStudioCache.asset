@@ -18,15 +18,81 @@ MonoBehaviour:
   - {fileID: 114807944812299096}
   EditorEvents:
   - {fileID: 114764757574812572}
-  - {fileID: 114872299052261298}
   - {fileID: 114732717212008450}
   - {fileID: 114219355881281852}
   - {fileID: 114976386919674096}
   - {fileID: 114239141100831468}
+  - {fileID: 114704637120428012}
+  - {fileID: 114161144997118728}
+  - {fileID: 114121393734050892}
+  - {fileID: 114294904042239420}
+  - {fileID: 114642122411009840}
+  - {fileID: 114959683041110434}
+  - {fileID: 114736082408087668}
   MasterBankRef: {fileID: 114314774265051046}
   StringsBankRef: {fileID: 114861111232325312}
-  stringsBankWriteTime: 636713519119059948
+  stringsBankWriteTime: 636713631389773567
   cacheVersion: 2
+--- !u!114 &114069932460556900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Charge
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &114121393734050892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Weapon_fire
+  guid: 6858bff00dbb7f4b98c137561b000ed7
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114069932460556900}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1548
+--- !u!114 &114161144997118728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Weapon_charge_full
+  guid: 5012510ded16214ea7ed416053c31bde
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114219355881281852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +152,28 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 0
+--- !u!114 &114294904042239420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Weapon_fire_rapid
+  guid: 6a8e0f87e6dae24a831df7e799988a36
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 419
 --- !u!114 &114314774265051046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,12 +186,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Games\Development\GMTK-Jam\GMTK Jam\Assets\Audio\Desktop\Master Bank.bank
-  lastModified: 636713519119059948
+  lastModified: 636713631389793508
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 13950
+    Value: 14346
   Exists: 1
+--- !u!114 &114399632260644390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ammo
+  Min: 0
+  Max: 100
+  Default: 0
+--- !u!114 &114642122411009840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Ammo_full
+  guid: 962bbb1a4bd2894095238a3042baa72b
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114704637120428012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Ammo_collect
+  guid: 23b80b9315fba64faaa17ddb31aa13ff
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114399632260644390}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &114722547778608942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,11 +264,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Games\Development\GMTK-Jam\GMTK Jam\Assets\Audio\Desktop\SFX.bank
-  lastModified: 636713519119149750
+  lastModified: 636713631389813461
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 383520
+    Value: 582912
   Exists: 1
 --- !u!114 &114732717212008450
 MonoBehaviour:
@@ -144,6 +292,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 750
+--- !u!114 &114736082408087668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Weapon_warning_laser
+  guid: f03876cc7d26904dabe4a2de69a09a3d
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 419
 --- !u!114 &114764757574812572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,12 +349,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Games\Development\GMTK-Jam\GMTK Jam\Assets\Audio\Desktop\MUS.bank
-  lastModified: 636713519119269393
+  lastModified: 636713631389903209
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1920768
   Exists: 1
+--- !u!114 &114858869088271270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Timeslow
+  Min: 0
+  Max: 1
+  Default: 1
 --- !u!114 &114861111232325312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,11 +382,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636713519119059948
+  lastModified: 636713631389773567
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1308
+    Value: 1592
   Exists: 1
 --- !u!114 &114872299052261298
 MonoBehaviour:
@@ -226,6 +411,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114959683041110434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/Weapon_fire_laser
+  guid: e8fd81182d091045ab1616c258dc6369
+  Banks:
+  - {fileID: 114722547778608942}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 494
 --- !u!114 &114976386919674096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,8 +450,9 @@ MonoBehaviour:
   - {fileID: 114722547778608942}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114858869088271270}
   MinDistance: 0
   MaxDistance: 0
-  Length: 1875
+  Length: 2700

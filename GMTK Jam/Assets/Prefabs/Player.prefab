@@ -56,6 +56,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4566949766680436}
+  - component: {fileID: 114846355112082280}
   m_Layer: 12
   m_Name: Pivot
   m_TagString: Untagged
@@ -98,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 1625975890668820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.02, y: -2.53, z: 0}
-  m_LocalScale: {x: 9.0259, y: 9.0259, z: 9.0259}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4566949766680436}
   m_Father: {fileID: 0}
@@ -136,9 +137,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.16948877, y: -0.17548132}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.15303922
 --- !u!95 &95130505450824890
 Animator:
   serializedVersion: 3
@@ -148,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 1625975890668820}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d95e33afadce534899738313be6c07d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6828c5fee78c42943a52416a9896281b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,6 +170,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+--- !u!114 &114846355112082280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716877633518486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2402739d9b95be4c8d6c1d188f5c2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114927625823918644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,9 +221,9 @@ MonoBehaviour:
   bulletPivot: {fileID: 4566949766680436}
   bulletPosition: {fileID: 4608415505158048}
   chargedShots:
-  - {fileID: 1502733813396702, guid: 7b951f7b737b73748af462322965109c, type: 2}
-  - {fileID: 1090744732229852, guid: bf277a06bbb66b04e98ade903dfee383, type: 2}
-  - {fileID: 1085260790626054, guid: 742964519c4f1f34291222b38c86c4f0, type: 2}
+  - {fileID: 1360754028182536, guid: 046e750115318c14c975eaa8642f1060, type: 2}
+  - {fileID: 1634644571227538, guid: 884fbb2e140d4cf4b9b80e2da507ca29, type: 2}
+  - {fileID: 1411489853773838, guid: e45168cfff304b545973bd493d329a00, type: 2}
 --- !u!212 &212869048813260052
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -247,7 +259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 00eba228a71563b41bf1af9909d1fec6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

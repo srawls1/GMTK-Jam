@@ -53,6 +53,9 @@ public class CharacterShooting : MonoBehaviour
             StartCoroutine(ChargeShot());
         }
 
+        Quaternion aimRotation = GetLaserRotation();
+        bulletPivot.rotation = aimRotation;
+        animator.SetFloat("Rotation", aimRotation.eulerAngles.z);
         Time.timeScale = Mathf.Lerp(Time.timeScale, destinationTimeScale, timeDilationSmoothing);
 	}
 
@@ -125,6 +128,11 @@ public class CharacterShooting : MonoBehaviour
 
     IEnumerator ChargeShot()
     {
+        if (currentAmmo == 0)
+        {
+            yield break;
+        }
+
         interrupted = false;
         destinationTimeScale = minTimeScale;
         float timePassed = 0f;
@@ -137,15 +145,11 @@ public class CharacterShooting : MonoBehaviour
             ammoConsumed += ammoConsumptionRate * Time.deltaTime;
             destinationTimeScale += timeDilationDecayRate * Time.deltaTime;
             destinationTimeScale = Mathf.Min(destinationTimeScale, 1f);
+            timePassed += Time.deltaTime;
 
             animator.SetFloat("ChargeLevel", ammoConsumed);
 
             yield return null;
-
-            Quaternion aimRotation = GetLaserRotation();
-            bulletPivot.rotation = aimRotation;
-            animator.SetFloat("Rotation", aimRotation.eulerAngles.z);
-            timePassed += Time.deltaTime;
 
             if (timePassed >= chargeTimeDamageThreshold)
             {
@@ -171,7 +175,7 @@ public class CharacterShooting : MonoBehaviour
 
         OnAmmoChanged(currentAmmo, maxAmmo);
 
-        if (wholeAmmoConsumed > 0 && !interrupted)
+        if (!interrupted)
         {
             Instantiate(chargedShots[wholeAmmoConsumed - 1], bulletPosition.position, bulletPosition.rotation);
         }
