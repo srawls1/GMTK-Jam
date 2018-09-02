@@ -52,9 +52,14 @@ public class CharacterShooting : MonoBehaviour
     {
         OnAmmoChanged += PrintAmmo;
         health = GetComponent<Health>();
-        //health.OnDeath
+        health.OnDeath += ShowDeathAnimation;
         animator = GetComponent<Animator>();
         destinationTimeScale = 1f;
+    }
+
+    void ShowDeathAnimation()
+    {
+        animator.SetTrigger("Death");
     }
 
     void PrintAmmo(int current, int max)

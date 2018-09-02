@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114658455556945988}
   m_Layer: 12
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnHealth: 50
+  respawnDelay: 0.7
   numLives: 3
 --- !u!114 &114846355112082280
 MonoBehaviour:

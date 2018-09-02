@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterRespawn : MonoBehaviour
 {
     [SerializeField] private float respawnHealth;
+    [SerializeField] private float respawnDelay;
     [SerializeField] private int numLives;
 
     private Health health;
@@ -15,7 +16,7 @@ public class CharacterRespawn : MonoBehaviour
     {
         startingPosition = transform.position;
 		health = GetComponent<Health>();
-        health.OnDeath += Respawn;
+        health.OnDeath += () => Invoke("Respawn", respawnDelay);
         rigidBody = GetComponent<Rigidbody2D>();
 	}
 
