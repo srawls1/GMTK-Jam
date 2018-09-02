@@ -123,6 +123,7 @@ public class CharacterShooting : MonoBehaviour
         }
 
         float aimRotation = Mathf.Atan2(aimInput.y, aimInput.x) * Mathf.Rad2Deg;
+        print(aimRotation);
         return Quaternion.Euler(0, 0, aimRotation);
     }
 
