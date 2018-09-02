@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
+    [FMODUnity.EventRef]
+    public string DamageSoundString;
+    FMOD.Studio.EventInstance DamageEvent;
 
-    private float currentHealth;
+    [SerializeField] private int maxHealth;
+    [SerializeField] bool isPlayer;
+
+    public float currentHealth;
 
     public event Action<float, int> OnHealthChanged;
     public event Action OnDeath;
@@ -29,7 +34,8 @@ public class Health : MonoBehaviour
         {
             return;
         }
-        
+
+        FMODUnity.RuntimeManager.CreateInstance(DamageSoundString);
         currentHealth -= damage;
 
         if (currentHealth <= 0)

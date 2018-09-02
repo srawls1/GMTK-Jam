@@ -1,20 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 class EnemyActivation
 {
     public float activateAfterTime;
     public GameObject enemy;
+    public bool requiredToKill;
 }
 
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private List<EnemyActivation> activations;
-    [SerializeField] private int numRequiredToKill;
+    [SerializeField] private UnityEvent onEnemiesCleared;
 
+    int numRequiredToKill;
     int numKilled = 0;
+
+    void Awake()
+    {
+        numRequiredToKill = 0;
+        foreach (EnemyActivation activation in activations)
+        {
+            if (activation.requiredToKill)
+            {
+                ++numRequiredToKill;
+            }
+        }
+    }
 
 	IEnumerator Start()
     {
@@ -33,8 +48,11 @@ public class EnemyManager : MonoBehaviour
 
         float time = 0f;
 
-        foreach (EnemyActivation activation in activations)
+        for (int i = 0; i < activations.Count; ++i)
         {
+            int index = i;
+            EnemyActivation activation = activations[index];
+
             float waitTime = activation.activateAfterTime - time;
             if (waitTime > 0)
             {
@@ -44,18 +62,22 @@ public class EnemyManager : MonoBehaviour
             activation.enemy.SetActive(true);
             activation.enemy.GetComponent<Health>().OnDeath += () =>
             {
-                RecordEnemyDead();
+                RecordEnemyDead(index);
             };
             time = activation.activateAfterTime;
         }
 	}
 
-    void RecordEnemyDead()
+    void RecordEnemyDead(int index)
     {
-        ++numKilled;
-        if (numKilled >= numRequiredToKill)
+        if (activations[index].requiredToKill)
         {
-            Debug.Log("WINNER!!!!!!!!!!!!");
+            ++numKilled;
+        }
+
+        if (numKilled == numRequiredToKill)
+        {
+            onEnemiesCleared.Invoke();
         }
     }
 }
