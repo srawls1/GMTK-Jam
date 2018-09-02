@@ -82,6 +82,12 @@ public class CharacterShooting : MonoBehaviour
                     StartCoroutine(ShowDamageRoutine());
                     Interrupt();
                     currentAmmo = maxAmmo;
+                    Destroy(collision.gameObject);
+                }
+                else
+                {
+                    collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    collision.GetComponent<Animator>().SetTrigger("Absorb");
                 }
                 OnAmmoChanged(currentAmmo, maxAmmo);
             }
@@ -90,8 +96,8 @@ public class CharacterShooting : MonoBehaviour
                 health.TakeDamage(b.damage);
                 Interrupt();
                 StartCoroutine(ShowDamageRoutine());
+                Destroy(collision.gameObject);
             }
-            Destroy(collision.gameObject);
         }
     }
 

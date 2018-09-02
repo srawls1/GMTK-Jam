@@ -80,7 +80,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            Destroy(gameObject);
+            DestroySelf();
         }
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
