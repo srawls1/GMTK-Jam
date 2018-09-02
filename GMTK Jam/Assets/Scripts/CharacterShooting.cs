@@ -40,6 +40,7 @@ public class CharacterShooting : MonoBehaviour
     {
         OnAmmoChanged += PrintAmmo;
         health = GetComponent<Health>();
+        //health.OnDeath
         animator = GetComponent<Animator>();
         destinationTimeScale = 1f;
     }
@@ -152,7 +153,12 @@ public class CharacterShooting : MonoBehaviour
         }
 
         float aimRotation = Mathf.Atan2(aimInput.y, aimInput.x) * Mathf.Rad2Deg;
-        print(aimRotation);
+
+        // Make it wrap around in the range (-45, 315) for the animator's sake
+        if (aimRotation > 315)
+        {
+            aimRotation -= 360;
+        }
         return Quaternion.Euler(0, 0, aimRotation);
     }
 
